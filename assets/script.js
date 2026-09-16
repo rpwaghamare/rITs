@@ -1,1 +1,3 @@
+function toggleMenu(){const n=document.getElementById('navMenu');n.style.display=n.style.display==='flex'?'none':'flex'}function submitForm(e){e.preventDefault();document.getElementById('formMsg').textContent='Thank you! Your enquiry has been recorded in this demo template.';e.target.reset()}function demoLogin(e){e.preventDefault();document.getElementById('formMsg').textContent='Demo login submitted. Connect this form to Laravel authentication for real login.'}
+function demoRegister(e){e.preventDefault();document.getElementById('formMsg').textContent='Registration demo submitted. Connect this form to Laravel/MySQL to create real accounts.';e.target.reset()}
 
