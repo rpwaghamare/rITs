@@ -100,5 +100,33 @@
 </div></div><div class="copyright">© 2026 rITs Satara. All rights reserved.</div></footer>
 <a class="whatsapp-float" href="https://wa.me/919823850581?text=Hello%20rITs%20Satara%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">☏</a>
 <script src="assets/script.js"></script>
+  <script>
+(function () {
+  const counter = document.getElementById('visitorCount');
+  if (!counter) return;
+
+  const fallbackKey = 'rits_satara_visitor_count';
+  const showCount = (count) => {
+    counter.textContent = Number(count).toLocaleString('en-IN');
+  };
+
+  fetch('https://api.counterapi.dev/v1/rits-satara/visits/up')
+    .then(response => {
+      if (!response.ok) throw new Error('Counter service unavailable');
+      return response.json();
+    })
+    .then(data => showCount(data.count))
+    .catch(() => {
+      // Fallback for offline/local testing.
+      let count = Number(localStorage.getItem(fallbackKey) || 0);
+      if (!sessionStorage.getItem('rits_visitor_counted')) {
+        count += 1;
+        localStorage.setItem(fallbackKey, count);
+        sessionStorage.setItem('rits_visitor_counted', '1');
+      }
+      showCount(count);
+    });
+})();
+</script>
 </body>
 </html>
