@@ -1,4 +1,4 @@
-# TechEdu Solutions - Complete Website Template
+# RITS Solutions - Complete Website Template
 
 A responsive static website template for:
 - Software Development
